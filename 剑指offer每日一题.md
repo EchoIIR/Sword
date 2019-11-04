@@ -15,6 +15,7 @@
       - [难点：](#%e9%9a%be%e7%82%b9-1)
       - [技巧:](#%e6%8a%80%e5%b7%a7)
       - [思考：](#%e6%80%9d%e8%80%83)
+      - [代码实现：](#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-1)
   - [三. 链表](#%e4%b8%89-%e9%93%be%e8%a1%a8)
     - [T3. 二维数组中的查找（M6.P58）](#t3-%e4%ba%8c%e7%bb%b4%e6%95%b0%e7%bb%84%e4%b8%ad%e7%9a%84%e6%9f%a5%e6%89%bem6p58)
       - [考点：](#%e8%80%83%e7%82%b9-2)
@@ -301,6 +302,90 @@ class T1ArraySearch {
 #### 思考：
 > 1. 掌握常见类及其常见方法，可以节省很多无用功
 > 2. 注意不同类型之间的运算，如比较（str.charAt(originalIndex) == ' '），如函数要求返回值为String,就要符合要求的返回，（result = str.toString();）
+
+#### 代码实现：
+```java
+/*请实现一个函数:
+将一个字符串中的每个空格替换成“%20”。
+例如，当字符串为We Are Happy.
+则经过替换之后的字符串为We%20Are%20Happy。
+*/
+class T2_ReplaceBlack{
+    public static void main(String[] args) {
+        StringBuffer str = new StringBuffer("We Are Happy.");
+        System.out.println(replaceSpace(str));
+        /* ======== test ===========
+        for (int x=0; x<str.length();x++ ){
+            System.out.print(str.charAt(x));
+        }
+        int length = str.length();          // 返回长度（字符数）:字符串的实际长度
+        int originalLength= str.capacity(); // 返回当前容量: 字符串所占容器的总大小
+        System.out.println("\nlength = " + length);
+        System.out.println("originalLength = " + originalLength); 
+
+        StringBuffer str2 = new StringBuffer(); // 默认长度是16
+        System.out.println(str2.length());
+        System.out.println(str2.capacity());
+        */
+    
+    }
+    /*
+    
+    */
+    public static String replaceSpace(StringBuffer str) {
+        /* 思路：
+        1、 遍历字符串，确定空格数，从而算出新的str的大小
+        2、 从后往前，依次替换空格为%20
+        3、 返回结果
+        */
+        int length = str.length();          // 返回长度：所含字符个数。:13
+        int originalLength= str.capacity(); // 返回当前容量: 字符串实际大小:29
+        int newLength = 0;
+        String result;
+        // 牛客网加了这部分判断报错：只能通过50%case，注释掉
+        if(str == null || length==0){
+            String message = "wrong input";
+            return message;
+        }
+
+        // 1.统计空格数量
+        int numBlack = 0;
+        for (int x=0; x<str.length(); x++){
+            if (str.charAt(x) == ' '){
+                //  char类型的空格换成int是32.//   char类型可以直接跟int类型进行比较.
+                numBlack++;
+            }
+        }
+        // 2. 计算新的字符串的长度
+        newLength = length + 2*numBlack; // 17,每出现一个空格，字符串替换之后长度增加2
+        // 牛客网加了这部分判断报错：只能通过50%case，注释掉
+        if (newLength > originalLength){
+            String message = "wrong input";
+            return message;
+        }
+        System.out.println(str.length());
+        str.setLength(newLength);   // 原来放teng13个元素，现在要放17个，必须腾出来
+        System.out.println(str.length());       
+        // 3. 定义index指向原始字符串的末尾和替换之后的字符串的末尾，从后往前替换
+        int originalIndex = length-1 ;
+        int newIndex = newLength-1;
+
+        while(originalIndex>=0){
+            if(str.charAt(originalIndex) == ' '){
+                str.setCharAt(newIndex--, '0');
+                str.setCharAt(newIndex--, '2');
+                str.setCharAt(newIndex--, '%');
+            }
+            else{
+                str.setCharAt(newIndex--, str.charAt(originalIndex));
+            }
+            --originalIndex ; 
+        }
+        result = str.toString();
+        return result ;
+    }
+}
+```
 
 ## 三. 链表
 ### T3. 二维数组中的查找（M6.P58）
