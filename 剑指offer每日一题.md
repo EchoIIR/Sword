@@ -233,17 +233,16 @@ class T1ArraySearch {
 请实现一个函数，将一个字符串中的每个空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。
 
 #### 考点：
-> * java中字符串,尾部没有"\0"
-> * java 字符串的常用方法 https://www.runoob.com/java/java-stringbuffer.html
-> * String类：创建后不可修改,适用于少量的字符串操作的情况
-> * StringBuffer & StringBuilder 类
-> **相同点：**
+> 1. java中字符串,尾部没有"\0"
+> 2. java 字符串的常用方法 https://www.runoob.com/java/java-stringbuffer.html
+> 3. String类：创建后不可修改,适用于少量的字符串操作的情况
+> 4. StringBuffer & StringBuilder 类
+> * **相同点：**
 > 其对象能够被多次的修改，并且不产生新的未使用对象。
-> **不同点：**
-> 1. StringBuilder（常用）的方法不是线程安全的（不能同步访问），但速度快,
->    适用于单线程下在字符缓冲区进行大量操作的情况
-> 2. StringBuffer线程安全的，但是慢,适用多线程下在字符缓冲区进行大量操作的情况
-> 3. 强调速度：用StringBuilder，有线程隐患：用StringBuffer
+> * **不同点：**
+> (1). StringBuilder（常用）的方法不是线程安全的（不能同步访问），但速度快,适用于单线程下在字符缓冲区进行大量操作的情况
+> (2). StringBuffer线程安全的，但是慢,适用多线程下在字符缓冲区进行大量操作的情况
+> (3). 强调速度：用StringBuilder，有线程隐患：用StringBuffer
 
 #### 思路：
 > 1. 看清要求：在原始字符串上操作还是可以使用新的中介变量
