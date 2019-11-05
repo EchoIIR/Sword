@@ -21,7 +21,9 @@ class T6_FindMinInArray{
         int length = array.length;
         if(array == null || length<=0){
             System.out.println("Wrong input!");
-            return -1;
+            return 0;
+        // NOTE：给出的所有元素都大于0，
+        // 若数组大小为0，请返回0。
         }
 
         int index1 = 0;
