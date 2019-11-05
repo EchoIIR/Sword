@@ -6,6 +6,12 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - T6_FindMinInArray",
+            "request": "launch",
+            "mainClass": "T6_FindMinInArray"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - T2_ReplaceBlack",
             "request": "launch",
             "mainClass": "T2_ReplaceBlack"
