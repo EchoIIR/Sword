@@ -6,6 +6,30 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - T11_NumberOf1",
+            "request": "launch",
+            "mainClass": "T11_NumberOf1"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - T13_reOrderArray",
+            "request": "launch",
+            "mainClass": "T13_reOrderArray"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - T3_reOrderArray",
+            "request": "launch",
+            "mainClass": "T3_reOrderArray"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - T12_Power",
+            "request": "launch",
+            "mainClass": "T12_Power"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - T6_FindMinInArray",
             "request": "launch",
             "mainClass": "T6_FindMinInArray"

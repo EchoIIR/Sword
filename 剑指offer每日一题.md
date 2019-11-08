@@ -71,36 +71,30 @@
   - [八. 位运算](#%e5%85%ab-%e4%bd%8d%e8%bf%90%e7%ae%97)
     - [T11. 二进制中1的个数（M15.P100）](#t11-%e4%ba%8c%e8%bf%9b%e5%88%b6%e4%b8%ad1%e7%9a%84%e4%b8%aa%e6%95%b0m15p100)
       - [考点：](#%e8%80%83%e7%82%b9-10)
-      - [思路：](#%e6%80%9d%e8%b7%af-9)
-      - [难点：](#%e9%9a%be%e7%82%b9-9)
-      - [技巧：](#%e6%8a%80%e5%b7%a7-9)
-      - [思考：](#%e6%80%9d%e8%80%83-8)
+      - [代码清单：](#%e4%bb%a3%e7%a0%81%e6%b8%85%e5%8d%95-1)
   - [九. 代码的完整性](#%e4%b9%9d-%e4%bb%a3%e7%a0%81%e7%9a%84%e5%ae%8c%e6%95%b4%e6%80%a7)
     - [T12. 数值的整数次方（M16.P110）](#t12-%e6%95%b0%e5%80%bc%e7%9a%84%e6%95%b4%e6%95%b0%e6%ac%a1%e6%96%b9m16p110)
       - [考点：](#%e8%80%83%e7%82%b9-11)
-      - [思路：](#%e6%80%9d%e8%b7%af-10)
-      - [难点：](#%e9%9a%be%e7%82%b9-10)
-      - [技巧：](#%e6%8a%80%e5%b7%a7-10)
-      - [思考：](#%e6%80%9d%e8%80%83-9)
+      - [思路：](#%e6%80%9d%e8%b7%af-9)
+      - [代码清单：](#%e4%bb%a3%e7%a0%81%e6%b8%85%e5%8d%95-2)
     - [T13. 调整数组顺序使奇数位于偶数前面（M21.P129）](#t13-%e8%b0%83%e6%95%b4%e6%95%b0%e7%bb%84%e9%a1%ba%e5%ba%8f%e4%bd%bf%e5%a5%87%e6%95%b0%e4%bd%8d%e4%ba%8e%e5%81%b6%e6%95%b0%e5%89%8d%e9%9d%a2m21p129)
       - [考点：](#%e8%80%83%e7%82%b9-12)
-      - [思路：](#%e6%80%9d%e8%b7%af-11)
-      - [难点：](#%e9%9a%be%e7%82%b9-11)
-      - [技巧：](#%e6%8a%80%e5%b7%a7-11)
-      - [思考：](#%e6%80%9d%e8%80%83-10)
+      - [思路：](#%e6%80%9d%e8%b7%af-10)
+      - [难点：](#%e9%9a%be%e7%82%b9-9)
+      - [思考：](#%e6%80%9d%e8%80%83-8)
   - [十. 代码的鲁棒性](#%e5%8d%81-%e4%bb%a3%e7%a0%81%e7%9a%84%e9%b2%81%e6%a3%92%e6%80%a7)
     - [T14. 链表中倒数第K个结点（M22.P134）](#t14-%e9%93%be%e8%a1%a8%e4%b8%ad%e5%80%92%e6%95%b0%e7%ac%ack%e4%b8%aa%e7%bb%93%e7%82%b9m22p134)
       - [考点：](#%e8%80%83%e7%82%b9-13)
-      - [思路：](#%e6%80%9d%e8%b7%af-12)
-      - [难点：](#%e9%9a%be%e7%82%b9-12)
-      - [技巧：](#%e6%8a%80%e5%b7%a7-12)
-      - [思考：](#%e6%80%9d%e8%80%83-11)
+      - [思路：](#%e6%80%9d%e8%b7%af-11)
+      - [难点：](#%e9%9a%be%e7%82%b9-10)
+      - [技巧：](#%e6%8a%80%e5%b7%a7-9)
+      - [思考：](#%e6%80%9d%e8%80%83-9)
     - [T15. 反转链表（M24.P142）](#t15-%e5%8f%8d%e8%bd%ac%e9%93%be%e8%a1%a8m24p142)
       - [考点：](#%e8%80%83%e7%82%b9-14)
-      - [思路：](#%e6%80%9d%e8%b7%af-13)
-      - [难点：](#%e9%9a%be%e7%82%b9-13)
-      - [技巧：](#%e6%8a%80%e5%b7%a7-13)
-      - [思考：](#%e6%80%9d%e8%80%83-12)
+      - [思路：](#%e6%80%9d%e8%b7%af-12)
+      - [难点：](#%e9%9a%be%e7%82%b9-11)
+      - [技巧：](#%e6%8a%80%e5%b7%a7-10)
+      - [思考：](#%e6%80%9d%e8%80%83-10)
 
 
 # 剑指offer练习题
@@ -520,28 +514,200 @@ class T6_FindMinInArray{
 
 ## 八. 位运算
 ### T11. 二进制中1的个数（M15.P100）
+> **题目描述**
+输入一个整数，输出该数二进制表示中1的个数。其中负数用补码表示。
 #### 考点：
-#### 思路：
-#### 难点：
-#### 技巧：
-#### 思考：
+> 1、进制转换：参考JavaViedo中的练习：NumBaseConvert.java
+#### 代码清单：
+``` java
+class T11_NumberOf1{
+    public static void main(String[] args) {
+        int num = 8;
+        
+        int count = NumberOf1(num);
+        System.out.println("\n NumberOf1: " + count); 
+    }
+
+
+    public static int NumberOf1(int num){
+      
+        System.out.println("\n The num " + num + " trasfer using Table is :" ); 
+        char[] table = {'0','1'};
+
+        int base = 1;
+        int offset = 1;
+        char[] result = new char[32]; // 按占位最大的二进制来分，用32位存结果
+        int pos = result.length;
+        if (num == 0){
+            System.out.println("0");
+            return 0;
+        }
+        while (num != 0){
+            int temp = num & base;        // 取数
+            result[--pos] = table[temp]; 
+            num = num>>>offset;
+        }
+       
+        //System.out.println("\n result2"); 
+        int count =0;
+        for (int x=0; x<=result.length-1;x++){
+            // 倒序打印数组元素
+            // System.out.print(result[x]);
+            if(result[x] == '1'){
+                count++;
+            }
+        }
+        return count;
+    }
+}
+```
+
 
 
 ## 九. 代码的完整性
 ### T12. 数值的整数次方（M16.P110）
+> 题目描述
+给定一个double类型的浮点数base和int类型的整数exponent。求base的exponent次方。
+保证base和exponent不同时为0
 #### 考点：
+> 1、多重条件判断：if - else if - else
+> 2、逻辑运算符的使用：
+> 保证base和exponent不同时为0：
+>  base != 0 || exponent != 0
 #### 思路：
-#### 难点：
-#### 技巧：
-#### 思考：
+#### 代码清单：
+```java
+/*
+题目描述
+给定一个double类型的浮点数base和int类型的整数exponent。求base的exponent次方。
+保证base和exponent不同时为0
+*/
+class T12_Power {
+    public static void main(String[] args) {
+        double base = 2;
+        int exponent = 3;
+        double result = Power(base, exponent);
+        System.out.println("result = " + result);
+    }
+
+    /* // ===== 自己实现绝对值 ==========
+    public static double Power(double base, int exponent){
+        double result = 1;
+        if (base != 0 || exponent != 0){
+                if(exponent>0) {
+                    for(int i = 1; i<=exponent;i++ ){
+                        result = result*base;
+                    }
+                    return result;
+                }else if (exponent<0){
+                    for(int i = 1; i<=-exponent;i++ ){
+                        result = result*base;                      
+                    } 
+                    result = 1/result;
+                    return result;
+                }
+                else {
+                    result = 1;
+                    return result;
+                }
+        }
+        else{// base和exponent同时为0
+            return 0;
+        }
+    }
+    */
+        //  ======== 用java的Math的Math.abs方法 =============
+        public static double Power(double base, int exponent) {
+        double result = 1;
+        if (base != 0 || exponent != 0) {
+
+            for (int i = 1; i <= Math.abs(exponent); i++) {
+                result = result * base;
+            }
+            if (exponent > 0) {
+                return result;
+            } else if (exponent < 0) {
+                result = 1 / result;
+                return result;
+            } else {
+                result = 1;
+                return result;
+            }
+        } else {// base和exponent同时为0
+            return 0;
+        }
+    }
+}
+
+```
 
 ### T13. 调整数组顺序使奇数位于偶数前面（M21.P129）
+> **题目描述**
+输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有的奇数位于数组的前半部分，所有的偶数位于数组的后半部分，并保证奇数和奇数，偶数和偶数之间的相对位置不变。
 #### 考点：
 #### 思路：
-#### 难点：
-#### 技巧：
-#### 思考：
+> **不需要额外存储空间**
+> * 基于排序算法思想：
+>  1、核心操作：遍历元素，按某种规则分两组：类似于排序算法
+>  2、题目要求：奇数和奇数，偶数和偶数之间的相对位置不变，即要稳定
+>  3、综上，要找一个稳定的“排序”算法，改装一下即可,如下图所示，
+> 即：冒泡、插入、归并,代码省略。
+![排序算法总结](image/排序算法总结.png)
+> * 基于数据本身的特点：
+> 1、数据有奇数有偶数：奇数不用变，遇到偶数时，记录当前位置i，再往下找下一个奇数j（找完时还没找到奇数就停止，说明后面都是偶数），将奇数移到之前第一次发现偶数的位置i，同时将i开始及其之后到j之前的这些偶数后移（这样保证相对位置不变）
+>
+> **需要额外存储空间**
+> 1、遍历数组，奇数存一个变量，偶数存一个变量
+> 2、将奇数数组，偶数数组拼接即可。
 
+#### 难点：
+> 1、注意题目要求：保证奇数和奇数，偶数和偶数之间的相对位置不变，即稳定，则下面的算法(仿照T2：空格替换思想)是不稳定的：
+```java
+    public static void reOrderArray(int [] array) {
+        int length = array.length;
+        int [] result = new int [length];
+        int oddIndex = 0;
+        int evenIndex = length-1;
+        int num = 0;
+        // 遍历数组，定义两个指针，一个指最开始，一个指最后
+        for(int i=0; i<length;i++ ){
+            num = array[i];
+            if (num%2 != 0){// 奇数
+                result[oddIndex] = num;
+                oddIndex++;
+            }else{
+                result[evenIndex] = num;
+                evenIndex--;
+            }
+        }
+        // int newScores[] = (int[]) scores.clone();
+        //array = result;
+
+        array = result.clone();
+
+        for(int i = 0; i< result.length; i++){
+            System.out.println(result[i]); 
+        }
+
+    } 
+```
+> 2、移动第一个偶数开始到第一个奇数之间的这些偶数时，从后往前移动，就不会覆盖。
+```java
+                // 找到了就交换array[i]，array[j],并将i+1~j-1之间的偶数往后移动
+                int tmp = array[i];
+                array[i] = array[j];
+                int count = j-i;
+                while(count>1){//从后往前移动，最前面的在循环外移动
+                    array[i + count] = array[i + count - 1];
+                    count--;
+                }
+                array[i+1] = tmp;
+
+```
+
+#### 思考：
+> 1、注意循环的边界条件，以及设置好变量，不要死循环
+> 2、对于数组、栈等存放数据的容器，要注意特殊的情况，上来先判断是否为空，再进行后续操作。
 
 ## 十. 代码的鲁棒性
 ### T14. 链表中倒数第K个结点（M22.P134）
