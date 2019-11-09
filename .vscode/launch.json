@@ -6,6 +6,12 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - T7_Fibonacci",
+            "request": "launch",
+            "mainClass": "T7_Fibonacci"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - T11_NumberOf1",
             "request": "launch",
             "mainClass": "T11_NumberOf1"
