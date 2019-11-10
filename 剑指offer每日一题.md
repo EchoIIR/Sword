@@ -399,6 +399,15 @@ class T2_ReplaceBlack{
 > 用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。
 
 #### 考点：
+> **Java 自定义类的使用**
+> * 一个类要单独存为一个.java文件
+> * 测试类中含main方法
+> * 定义自定义类的对象，不需要import自定义的类，import的是包
+> * 所以本题中有两个文件：
+>**T5_StackAndQueue.java**：完成用2个栈实现队列与pop,push方法
+>**T5_StackAndQueueTest.java**：测试自定义的队列是否满足要求
+
+
 > **Java Stack 类**
 > 栈是Vector的一个子类，它实现了一个标准的后进先出的栈。堆栈只定义了默认构造函数，用来创建一个空栈。 堆栈除了包括由Vector定义的所有方法，也定义了自己的一些方法。
 > **Java Stack 类自定义方法**
