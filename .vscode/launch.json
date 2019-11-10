@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - T9_JumpFloorII",
+            "request": "launch",
+            "mainClass": "T9_JumpFloorII",
+            "projectName": "Sword_94f9f2b6"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - T8_JumpFloor",
             "request": "launch",
             "mainClass": "T8_JumpFloor",
