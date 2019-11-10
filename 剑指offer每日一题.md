@@ -68,9 +68,6 @@
     - [T15. 反转链表（M24.P142）](#t15-%e5%8f%8d%e8%bd%ac%e9%93%be%e8%a1%a8m24p142)
       - [考点：](#%e8%80%83%e7%82%b9-12)
       - [思路：](#%e6%80%9d%e8%b7%af-11)
-      - [难点：](#%e9%9a%be%e7%82%b9-3)
-      - [技巧：](#%e6%8a%80%e5%b7%a7-2)
-      - [思考：](#%e6%80%9d%e8%80%83-2)
 
 
 # 剑指offer练习题
@@ -977,8 +974,58 @@ class T14_FindKthToTail {
 ```
 
 ### T15. 反转链表（M24.P142）
+> **题目描述**
+输入一个链表，反转链表后，输出新链表的表头。
 #### 考点：
 #### 思路：
-#### 难点：
-#### 技巧：
-#### 思考：
+> * 保存当前节点的next节点
+> * 修改当前节点next节点为pre（初值为null，因为反转后第一个节点的next节点为null）
+> * 将当前节点存进pre
+> * 进入next节点并循环
+> * **注意**：循环结束后，还需要再赋一次值，因为在倒数第二个节点的next修改后，循环就终止了，还需将最后一个节点next修改。
+
+``` java 
+
+class T15_ReverseList {
+    public static void main(String[] args) {
+        ListNode t1 = new ListNode(1);
+        ListNode t2 = new ListNode(2);
+        ListNode t3 = new ListNode(3);
+        ListNode t4 = new ListNode(4);
+        t1.add(t2); // 链表的增加是一个一个节点(Node)的增加
+        t1.add(t3);
+        t1.add(t4);
+        ListNode result = ReverseList(t1);
+        System.out.println("\nresult.val = " + result.val);
+
+
+    }
+
+    public static ListNode ReverseList(ListNode head) {
+
+        if (head == null){
+            return null;
+        }
+            
+        ListNode pre = null;
+        ListNode nex = null;
+
+        while (head.next != null) {
+            nex = head.next;
+            head.next = pre;
+            pre = head;
+            head = nex;
+            System.out.println("\npre.val = " + pre.val);
+            System.out.println("nex.val = " + nex.val);
+            System.out.println("head.val = " + head.val);
+        }
+        
+        head.next = pre;
+        System.out.println("\nPre.val = " + pre.val);
+        System.out.println("head.val = " + head.val);
+
+        return head;
+    }
+}
+
+```
