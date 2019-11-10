@@ -8,7 +8,7 @@ class T10_RectCover {
     //      = f(m-2) + f(m-1),(n = m)
     public static void main(String[] args) {
         int n = 4;
-        System.out.println("n = " +  RectCover(n));
+        System.out.println("RectCover = " +  RectCover(n));
     }
 
     public static int RectCover(int target) {

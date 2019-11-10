@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - T14_FindKthToTail",
+            "request": "launch",
+            "mainClass": "T14_FindKthToTail",
+            "projectName": "Sword_94f9f2b6"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - T10_RectCover",
             "request": "launch",
             "mainClass": "T10_RectCover",

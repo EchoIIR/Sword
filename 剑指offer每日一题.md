@@ -64,15 +64,13 @@
     - [T14. 链表中倒数第K个结点（M22.P134）](#t14-%e9%93%be%e8%a1%a8%e4%b8%ad%e5%80%92%e6%95%b0%e7%ac%ack%e4%b8%aa%e7%bb%93%e7%82%b9m22p134)
       - [考点：](#%e8%80%83%e7%82%b9-11)
       - [思路：](#%e6%80%9d%e8%b7%af-10)
-      - [难点：](#%e9%9a%be%e7%82%b9-3)
-      - [技巧：](#%e6%8a%80%e5%b7%a7-2)
-      - [思考：](#%e6%80%9d%e8%80%83-2)
+      - [代码清单](#%e4%bb%a3%e7%a0%81%e6%b8%85%e5%8d%95)
     - [T15. 反转链表（M24.P142）](#t15-%e5%8f%8d%e8%bd%ac%e9%93%be%e8%a1%a8m24p142)
       - [考点：](#%e8%80%83%e7%82%b9-12)
       - [思路：](#%e6%80%9d%e8%b7%af-11)
-      - [难点：](#%e9%9a%be%e7%82%b9-4)
-      - [技巧：](#%e6%8a%80%e5%b7%a7-3)
-      - [思考：](#%e6%80%9d%e8%80%83-3)
+      - [难点：](#%e9%9a%be%e7%82%b9-3)
+      - [技巧：](#%e6%8a%80%e5%b7%a7-2)
+      - [思考：](#%e6%80%9d%e8%80%83-2)
 
 
 # 剑指offer练习题
@@ -918,11 +916,65 @@ class T12_Power {
 
 ## 十. 代码的鲁棒性
 ### T14. 链表中倒数第K个结点（M22.P134）
+> **题目描述**
+输入一个链表，输出该链表中倒数第k个结点。
 #### 考点：
 #### 思路：
-#### 难点：
-#### 技巧：
-#### 思考：
+> * **双向链表**
+> 遍历到末尾，再回溯
+> * **单向列表**
+> > 方法一：变倒数为正数
+> > * 1. 遍历第一遍：统计结点个数：n
+> > * 2. 遍历第二遍：倒数第k个即为正数第n-k+1个
+> 
+> > 方法二：两个指针，保持相对距离：k-1
+> > * 1. first指针先走到k-1,second不动
+> > * 2. 从k-1开始一起走，first走到n-1,second走到n-k(第n-k+1个)
+
+#### 代码清单
+```java
+class T14_FindKthToTail {
+    public static void main(String[] args) {
+        ListNode t1 = new ListNode(1);
+        ListNode t2 = new ListNode(2);
+        ListNode t3 = new ListNode(3);
+        ListNode t4 = new ListNode(4);
+        t1.add(t2); // 链表的增加是一个一个节点(Node)的增加
+        t1.add(t3);
+        t1.add(t4);
+        
+        //LinkedList officers = new LinkedList();
+
+        ListNode result = new ListNode(0);
+
+        result  =  FindKthToTail(t1,2); // 返回到数组中
+        System.out.println(result.val);
+
+    }
+
+    public static ListNode FindKthToTail(ListNode head, int k) {
+        if(head == null || k <=0){
+            return null;
+        }
+        ListNode first = head, second = head;
+        for(int i=0; i<=k-1; i++){
+            //如果k超出了节点的个数
+            if(first == null){
+                return null;
+            }else{
+                first = first.next;
+            }
+        }
+        
+        while(first != null){
+            first = first.next;
+            second = second.next;
+        }
+        return second;
+    }
+}
+
+```
 
 ### T15. 反转链表（M24.P142）
 #### 考点：
