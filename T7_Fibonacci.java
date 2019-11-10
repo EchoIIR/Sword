@@ -2,7 +2,7 @@ class T7_Fibonacci {
     // Fibonacci数列：F(n)=F(n-1)+F(n-2)
     // 0,1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89...
     public static void main(String[] args) {
-        int n =50;
+        int n = 4;
         int fibonacciNum = Fibonacci(n);
         System.out.println(fibonacciNum);
     }
