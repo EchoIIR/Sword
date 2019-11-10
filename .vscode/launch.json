@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - T5_StackAndQueueTest",
+            "request": "launch",
+            "mainClass": "T5_StackAndQueueTest",
+            "projectName": "Sword_94f9f2b6"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - T5_StackAndQueue",
+            "request": "launch",
+            "mainClass": "T5_StackAndQueue",
+            "projectName": "Sword_94f9f2b6"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - T7_Fibonacci",
             "request": "launch",
             "mainClass": "T7_Fibonacci"
