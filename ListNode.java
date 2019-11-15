@@ -1,20 +1,50 @@
-
-public class ListNode {
+class ListNode {
     int val;
     ListNode next = null;
+
+    ListNode() {}
 
     ListNode(int val) {
         this.val = val;
     }
-    public void add(ListNode newNode){		// 将节点加入到合适的位置
-        // 如果下一个节点为空，则把新节点设置在next的位置上
-        if(this.next==null){		
-            this.next = newNode ;
+    // 1. 创建带头结点的单链表(尾插法建表)
+    public  ListNode createList(int[] arr) {
+        ListNode head = new ListNode(arr[0]); // 头结点
+        ListNode tail = head;
+        for (int i = 1; i < arr.length; i++) {
+            ListNode newNode = new ListNode(arr[i]);
+            tail.next = newNode;
+            tail = newNode;
         }
-        // 如果不为空，说明还没到尾巴，则需要向下继续找next
-        else{		
-            this.next.add(newNode) ;
+        return head;
+    }
+    // 2. 打印链表
+    public  void printList(ListNode head) {
+        while (head != null) {
+            if (head.next == null)
+                System.out.println(head.val);
+            else
+                System.out.print(head.val + " --> ");
+
+            head = head.next;
         }
     }
+}
+
+class Main {
+    public static void main(String[] args) {
+
+        ListNode l1 = new ListNode();
+
+        int[] arr = { 11, 22, 33, 44, 55 };
+
+        ListNode head = l1.createList(arr); // 建表
+
+        // 打印链表
+        l1.printList(head);
+   
+    }
+
+ 
 
 }

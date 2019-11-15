@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "Sword_94f9f2b6"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - T16_LinelistMerge",
+            "request": "launch",
+            "mainClass": "T16_LinelistMerge",
+            "projectName": "Sword_94f9f2b6"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - T15_ReverseList",
             "request": "launch",
             "mainClass": "T15_ReverseList",
