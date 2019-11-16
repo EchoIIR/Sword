@@ -6,6 +6,12 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - T19_printMatrix",
+            "request": "launch",
+            "mainClass": "T19_printMatrix"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - T16_LinelistMerge",
             "request": "launch",
             "mainClass": "T16_LinelistMerge"

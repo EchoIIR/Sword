@@ -1006,6 +1006,48 @@ class T15_ReverseList {
 > > * 递归法
 > > * 循环法
 
+**代码清单：**
+```java 
+class T16_LinelistMerge {
+    public static void main(String[] args) {
+
+        int [] oArr = {1,3,5,7,9};
+        int [] eArr = {2,4,6,8,10};
+
+        // 创建链表
+        ListNode oList = ListNode.createList(oArr); // 通过类名直接调用方法
+        ListNode eList = ListNode.createList(eArr);
+        
+        // 打印链表
+        ListNode.printList(oList);
+        ListNode.printList(eList);
+
+        // 合并并打印链表
+        ListNode result =  MergeNode(oList,eList);
+        ListNode.printList(result);
+
+    }
+
+    public static ListNode MergeNode(ListNode list1,ListNode list2){
+        ListNode head = null;
+        if(list1 == null){
+            return list2;
+        }
+        if(list2 == null){
+            return list1;
+        }
+        if(list1.val < list2.val){
+            head = list1;
+            head.next = MergeNode(list1.next, list2);
+        }else{
+            head = list2;
+            head.next = MergeNode(list1, list2.next);
+        }
+        return head;   
+    }
+}
+```
+
 ### T17. 树的子结构（M26.P148）
 > **题目描述**
 输入两棵二叉树A，B，判断B是不是A的子结构。
@@ -1024,8 +1066,100 @@ class T15_ReverseList {
 >**题目描述**
 输入一个矩阵，按照从外向里以顺时针的顺序,依次打印出每一个数字，例如，如果输入如下4 X 4矩阵：1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16.则依次打印出数字:1,2,3,4,8,12,16,15,14,13,9,5,6,7,11,10.
 > **思路**
-> 
+> * 先画图：找出循环条件、边界条件
+> * 问题分解：
+> * 循环打印一个外圈，直到没有最中心的所有元素打印完成。
+> * 打印一个圈的实现：从左到右，上到下，右到左，下到上，注意边界条件的确定。
+
 > **考点**
+> * 抽象问题通过画图的方式具体化。
+> * 循环终止条件、判断边界条件的确定。
+
+**代码清单**
+```java
+import java.util.*;
+
+import javax.naming.spi.DirStateFactory.Result;
+
+class T19_printMatrix {
+    public static void main(String[] args) {
+        // 定义一个整型数组:3行4列
+        int matrix[][] = new int[4][5];
+
+        // 获取行数---3行
+        int lenX = matrix.length; // 3
+        // 获取列数---4列
+        int lenY = matrix[0].length; // 4
+
+        System.out.println("\nlenX = " + lenX + "  lenY = " + lenY + '\n');
+
+        int num = 1;
+        for (int x = 0; x < lenX; x++) {
+            for (int y = 0; y < lenY; y++) {
+                matrix[x][y] = num++;
+            }
+        }
+
+        for (int x = 0; x < lenX; x++) {
+            for (int y = 0; y < lenY; y++) {
+                System.out.print(matrix[x][y] + "\t");
+            }
+            System.out.println();
+        }
+        ArrayList<Integer> result =  printMatrix(matrix);
+        System.out.println("\n"+ result);
+
+    }
+
+    public static ArrayList<Integer> printMatrix(int[][] matrix) {
+        int rows = matrix.length; // 获取行数
+        int columns = matrix[0].length; // 获取列数
+        int start = 0;
+        ArrayList<Integer> result = new ArrayList<>();
+
+        if(matrix == null || columns<=0 || rows<=0)
+            return result;
+        
+        while (columns > start * 2 && rows>start * 2) {
+            int endX = columns - 1 - start;
+            int endY = rows - 1 - start;
+            // 从左到右打印一行
+            for (int i = start; i <= endX; ++i) {
+                int number = matrix[start][i];
+                result.add(number);
+                System.out.print(number + " ");
+            }
+            // 从上到下打印一列
+            if (start < endY) {
+                for (int i = start + 1; i <= endY; ++i) {
+                    int number = matrix[i][endX];
+                    result.add(number);
+                    System.out.print(number + " ");
+                }
+            }
+            // 从右到左打印一列
+            if (start < endX && start < endY) {
+                for (int i = endX - 1; i >= start; --i) {
+                    int number = matrix[endY][i];
+                    result.add(number);
+                    System.out.print(number + " ");
+                }
+            }
+            // 从下到上打印一列
+            if (start < endX && start<endY -1) {
+                for (int i = endY - 1; i >= start+1; --i) {
+                    int number = matrix[i][start];
+                    result.add(number);
+                    System.out.print(number + " ");
+                }
+            }
+    
+            ++start;
+        }
+        return result;
+    }
+}
+```
 
 ## 十三. 举例让抽象具体化
 ### T20. 包含min函数的栈（M30.P165）
