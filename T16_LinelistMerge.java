@@ -1,3 +1,5 @@
+
+
 /*
 题目描述
 输入两个单调递增的链表，
@@ -5,59 +7,43 @@
 当然我们需要合成后的链表满足单调不减规则。
 */
 
+
+
 class T16_LinelistMerge {
     public static void main(String[] args) {
 
-        ListNode t1 = new ListNode();
-    
+        int [] oArr = {1,3,5,7,9};
+        int [] eArr = {2,4,6,8,10};
+
+        // 创建链表
+        ListNode oList = ListNode.createList(oArr);
+        ListNode eList = ListNode.createList(eArr);
+        
+        // 打印链表
+        ListNode.printList(oList);
+        ListNode.printList(eList);
+
+        // 合并并打印链表
+        ListNode result =  MergeNode(oList,eList);
+        ListNode.printList(result);
+
     }
 
-    public static ListNode Merge(ListNode l1, ListNode l2) {
-        
-            if (l1 == null) {
-                return l2;
-            }
-    
-            if (l2 == null) {
-                return l1;
-            }
-    
-            
-            ListNode temp1 = l1;
-            ListNode temp2 = l2;
-            ListNode mergeListNode;
-            if (l1.val > l2.val) {
-                mergeListNode = l2;
-                temp2 = l2.next;
-            } else {
-                mergeListNode = l1;
-                temp1 = l1.next;
-            }
-            ListNode mergeListNodePointer = mergeListNode;
-    
-    
-            //每次循环只前进一个指针
-            while (temp1 != null && temp2 != null) {
-                if (temp1.val > temp2.val) {
-                    mergeListNodePointer.next = temp2;
-                    mergeListNodePointer=mergeListNodePointer.next;
-                    temp2 = temp2.next;
-                } else {
-                    mergeListNodePointer.next = temp1;
-                    mergeListNodePointer=mergeListNodePointer.next;
-                    temp1 = temp1.next;
-                }
-            }
-    
-            //将剩余的节点拼接起来
-            if (temp1 != null) {
-                mergeListNodePointer.next = temp1;
-            }
-    
-            if (temp2 != null) {
-                mergeListNodePointer.next = temp2;
-            }
-    
-            return mergeListNode;
+    public static ListNode MergeNode(ListNode list1,ListNode list2){
+        ListNode head = null;
+        if(list1 == null){
+            return list2;
         }
+        if(list2 == null){
+            return list1;
+        }
+        if(list1.val < list2.val){
+            head = list1;
+            head.next = MergeNode(list1.next, list2);
+        }else{
+            head = list2;
+            head.next = MergeNode(list1, list2.next);
+        }
+        return head;   
+    }
 }
