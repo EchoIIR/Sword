@@ -6,6 +6,12 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - T17_HasSubtree",
+            "request": "launch",
+            "mainClass": "T17_HasSubtree"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - T20_MyStack",
             "request": "launch",
             "mainClass": "T20_MyStack"
