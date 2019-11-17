@@ -1100,9 +1100,39 @@ class T16_LinelistMerge {
 ```
 ## 十一. 面试思路
 ### T18. 二叉树的镜像（M27.P157）
+> **题目描述**
+操作给定的二叉树，将其变换为源二叉树的镜像。
+
 > **思路**
+> * 1、前序遍历这棵树的每个节点
+> * 2、如果是非叶子节点，就交换她的左右子节点，否则结束
 
 > **考点**
+> * 二叉树的遍历算法
+> * 新概念理解与转换，将镜像问题转化为交换非叶节点左右子结点的问题
+
+**代码清单**
+```java
+    public void Mirror(TreeNode root){
+          if(root ==null)
+             return;
+          if(root.left ==null && root.right ==null)
+              return;
+          //交换左右子树
+          //TreeNode tmp = new TreeNode(); 
+          // TreeNode的构造函数有值，这样牛客网报错
+          TreeNode tmp = root.left;
+          root.left = root.right;
+          root.right = tmp;
+          //递归将两给子树的左右子树镜像
+          if(root.left !=null)
+              Mirror(root.left);
+          if(root.right !=null)
+              Mirror(root.right);
+     
+      }
+```
+
 
 ## 十二. 画图让抽象形象化
 ### T19. 顺时针打印矩阵（M29.P161）
