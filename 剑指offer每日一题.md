@@ -35,8 +35,8 @@
   - [十三. 举例让抽象具体化](#%e5%8d%81%e4%b8%89-%e4%b8%be%e4%be%8b%e8%ae%a9%e6%8a%bd%e8%b1%a1%e5%85%b7%e4%bd%93%e5%8c%96)
     - [T20. 包含min函数的栈（M30.P165）](#t20-%e5%8c%85%e5%90%abmin%e5%87%bd%e6%95%b0%e7%9a%84%e6%a0%88m30p165)
     - [T21. 栈的压入、弹出序列(M31.P168)](#t21-%e6%a0%88%e7%9a%84%e5%8e%8b%e5%85%a5%e5%bc%b9%e5%87%ba%e5%ba%8f%e5%88%97m31p168)
-    - [T22. 从上往下打印二叉树(M32.P171)](#t22-%e4%bb%8e%e4%b8%8a%e5%be%80%e4%b8%8b%e6%89%93%e5%8d%b0%e4%ba%8c%e5%8f%89%e6%a0%91m32p171)
-    - [T23. 二叉搜索树的后序遍历序列(M33.P179)](#t23-%e4%ba%8c%e5%8f%89%e6%90%9c%e7%b4%a2%e6%a0%91%e7%9a%84%e5%90%8e%e5%ba%8f%e9%81%8d%e5%8e%86%e5%ba%8f%e5%88%97m33p179)
+    - [T22. 二叉树层序遍历：从上往下打印二叉树(M32.P171)-](#t22-%e4%ba%8c%e5%8f%89%e6%a0%91%e5%b1%82%e5%ba%8f%e9%81%8d%e5%8e%86%e4%bb%8e%e4%b8%8a%e5%be%80%e4%b8%8b%e6%89%93%e5%8d%b0%e4%ba%8c%e5%8f%89%e6%a0%91m32p171)
+    - [T23. 二叉树后序遍历：二叉搜索树的后序遍历序列(M33.P179)](#t23-%e4%ba%8c%e5%8f%89%e6%a0%91%e5%90%8e%e5%ba%8f%e9%81%8d%e5%8e%86%e4%ba%8c%e5%8f%89%e6%90%9c%e7%b4%a2%e6%a0%91%e7%9a%84%e5%90%8e%e5%ba%8f%e9%81%8d%e5%8e%86%e5%ba%8f%e5%88%97m33p179)
     - [T24. 二叉树中和为某一值的路径(M34.P182)](#t24-%e4%ba%8c%e5%8f%89%e6%a0%91%e4%b8%ad%e5%92%8c%e4%b8%ba%e6%9f%90%e4%b8%80%e5%80%bc%e7%9a%84%e8%b7%af%e5%be%84m34p182)
   - [十四. 分解让复杂问题简单化](#%e5%8d%81%e5%9b%9b-%e5%88%86%e8%a7%a3%e8%ae%a9%e5%a4%8d%e6%9d%82%e9%97%ae%e9%a2%98%e7%ae%80%e5%8d%95%e5%8c%96)
     - [T25. 复杂链表的复制(M35.P187)](#t25-%e5%a4%8d%e6%9d%82%e9%93%be%e8%a1%a8%e7%9a%84%e5%a4%8d%e5%88%b6m35p187)
@@ -1307,19 +1307,20 @@ public class Solution {
 }
 ```
 
-### T22. 从上往下打印二叉树(M32.P171)
+### T22. 二叉树层序遍历：从上往下打印二叉树(M32.P171)-
 > **题目描述**
 从上往下打印出二叉树的每个节点，同层节点从左至右打印。
 
 > **思路分析**
 > * 实质：考察树的层序遍历
-> 
+
 > * **树的层序遍历**
-> * 遍历压栈元素pushA：
+> * 树的层序遍历：
 > > * 1.先打印二叉树的根节点，同时把左右子树的根节点按顺序放入容器。
 > > * 2.打印左子树的根节点，同时再将其左右节点也放入容器
 > > * 3.再打印右子树的根节点，同时把子树的左右子树根节点放入容器。
 > 重复1-3，直到把所有节点打印结束。
+
 ```java
 class T22_PrintFromTopToBottom {
     public static void main(String[] args) {
@@ -1374,12 +1375,153 @@ class T22_PrintFromTopToBottom {
 }
 ```
 
-### T23. 二叉搜索树的后序遍历序列(M33.P179)
+### T23. 二叉树后序遍历：二叉搜索树的后序遍历序列(M33.P179)
+> **题目描述**
+输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历的结果。
+如果是则输出Yes,否则输出No。假设输入的数组的任意两个数字都互不相同。
 
 
+> **思路分析**
+> * 实质：考察二叉树的后序遍历
+
+> * **二叉树的后序遍历**
+> * 二叉树的后序遍历：
+> > * 1.最后一个数字是二叉树的根节点
+> > * 2.前面分为两部分：
+> > 第一部分是左子树的节点值且均小于根节点值，
+> > 第二部分是右子树的节点值且均大于根节点值。
+> > * 3.本质为一个递归过程，再满足1-2的规则下输出二叉树的所有节点值。
+
+
+> * **编程技巧与难点：**
+> * 递归出口时的变化量的设定
+> * 递归思想的理解
+```java 
+import java.util.Arrays;
+
+class T23_VerifySquenceOfBST {
+    public static void main(String[] args) {
+        int[] sequence = { 5, 7, 6, 9, 11, 10, 8 };// true
+        // int [] sequence = {7,4,6,5}; //false
+        System.out.println(VerifySquenceOfBST(sequence));
+    }
+
+    public static boolean VerifySquenceOfBST(int[] sequence) {
+        int len = sequence.length;
+        if (len == 0) {
+            return false;
+        }
+        // 根节点值
+        int root = sequence[len - 1];
+        // 递归出口
+        int i = 0; // 技巧
+        for (; i < len - 1; i++) {
+            if (sequence[i] > root) {
+                break;
+            }
+        }
+        int j = i; // 技巧
+        for (; j < len - 1; j++) {
+            if (sequence[j] < root) {
+                return false;
+            }
+        }
+
+        boolean left = true;
+        boolean right = true;
+        // 递归入口
+        if (i > 0) { 
+            // 判断左子树是否为二叉搜索树
+            left = VerifySquenceOfBST(Arrays.copyOfRange(sequence, 0, i));
+        }
+        if (i < len - 1) { 
+            // 判断左子树是否为二叉搜索树
+            right = VerifySquenceOfBST(Arrays.copyOfRange(sequence, i, len - 1));
+        }
+        return left && right;
+    }
+}
+
+```
 
 ### T24. 二叉树中和为某一值的路径(M34.P182)
+> **题目描述**
+> 输入一颗二叉树的根节点和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。
+> 路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。
+> (注意: 在返回值的list中，数组长度大的数组靠前)
+
+> **思路分析**
+> * "新概念"-画特例，找规律解决
+> * 路径：起点为根节点出发---》遍历根节点----》前序遍历中根节点为起点。
+> * 从根节点开始，记录路过的节点直到叶节点，此时将其和与目标值对比，行就输出，不行就结束
+> * 注意，前进要记录值，后退要删除值
+
+> **难点**
+> * 递归思想的理解
 
 ## 十四. 分解让复杂问题简单化
 
 ### T25. 复杂链表的复制(M35.P187)
+> **题目描述**
+> 输入一个复杂链表（每个节点中有节点值，以及两个指针，
+> 一个指向下一个节点，另一个特殊指针指向任意一个节点），
+> 返回结果为复制后复杂链表的head。
+> （注意，输出结果中请不要返回参数中的节点引用，否则判题程序会直接返回空）
+
+> **思路分析**
+> * **方法一**
+> > 1. 复制原始链表的每个节点A得到A'，A'用this.next连接。
+> > 2. 设置每个节点A'的this.random。
+> > 缺点：设置每个节点this.random时,需要从头开始找，时间复杂度为O（n）.
+> * **方法二**
+> > 1. 复制原始链表的每个节点A得到A'，A'用this.next连接，同时将<A,A'>用哈希表记录
+> > 2. 设置每个节点A'的this.random。
+> 优点：设置每个节点this.random时，利用哈希表，可以用O（1）的时间根据节点A，找到A'.
+> * **方法三**
+> >*  1.复制每个结点，如复制结点A得到A'，将结点A'插到结点A后面,
+>   即A.next = A'（A.random = S）
+> >*  2.设置复制出的节点A'的random，其中A.random = S的S复制节点为S'.
+>   即A.random = S;
+>   则A'.random = S';
+> >*  3.拆分链表，将链表拆分为原链表和复制后的链表。
+>  奇数位置的节点：原始链表
+>  偶数位置的节点: 复制后的链表
+
+```java
+// 方法三的实现
+    public static RandomListNode clone(RandomListNode pHead) {
+
+        if (pHead == null) {
+            return null;
+        }
+
+        RandomListNode currentNode = pHead;
+        // 1、复制每个结点，如复制结点A得到A1，将结点A1插到结点A后面；
+        while (currentNode != null) {
+            RandomListNode cloneNode = new RandomListNode(currentNode.label);
+            RandomListNode nextNode = currentNode.next;
+            currentNode.next = cloneNode;
+            cloneNode.next = nextNode;
+            currentNode = nextNode;
+        }
+
+        currentNode = pHead;
+        // 2、重新遍历链表，复制老结点的随机指针给新结点，如A1.random = A.random.next;
+        while (currentNode != null) {
+            currentNode.next.random = currentNode.random == null ? null : currentNode.random.next;
+            currentNode = currentNode.next.next;
+        }
+
+        // 3、拆分链表，将链表拆分为原链表和复制后的链表
+        currentNode = pHead;
+        RandomListNode pCloneHead = pHead.next;
+        while (currentNode != null) {
+            RandomListNode cloneNode = currentNode.next;
+            currentNode.next = cloneNode.next;
+            cloneNode.next = cloneNode.next == null ? null : cloneNode.next.next;
+            currentNode = currentNode.next;
+        }
+
+        return pCloneHead;
+    }
+```

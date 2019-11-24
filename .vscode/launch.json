@@ -6,6 +6,12 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - T23_VerifySquenceOfBST",
+            "request": "launch",
+            "mainClass": "T23_VerifySquenceOfBST"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - T22_PrintFromTopToBottom",
             "request": "launch",
             "mainClass": "T22_PrintFromTopToBottom"
