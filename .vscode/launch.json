@@ -6,6 +6,12 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - T21_IsPopOrder",
+            "request": "launch",
+            "mainClass": "T21_IsPopOrder"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - T17_HasSubtree",
             "request": "launch",
             "mainClass": "T17_HasSubtree"
